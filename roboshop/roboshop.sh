@@ -7,7 +7,7 @@ if [ ${USER_ID -ne 0} ]; then
 fi
 
 component=$1
-if [ -z "$commponent" ]; then
+if [ -z "$component" ]; then
   echo -e "\e[1;31mcompoent input missing\e[0m"
   exit
 fi
