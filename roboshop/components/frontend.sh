@@ -2,10 +2,7 @@
 
 
 yum install nginx -y
-if [ $? -ne 0 ]; then
-  echo nginx not installed
-  exit 1
-fi
+
 #Let's download the HTML content that serves the RoboSHop Project UI and deploy under the Nginx path.
 
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
@@ -19,5 +16,5 @@ mv static/* .
 rm -rf frontend-master static README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 #Finally restart the service once to effect the changes.
-
-systemctl restart nginx
+systemctl enable nginx
+systemctl start nginx
